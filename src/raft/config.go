@@ -8,17 +8,21 @@ package raft
 // test with the original before submitting.
 //
 
-import "../labrpc"
-import "log"
-import "sync"
-import "testing"
-import "runtime"
-import "math/rand"
-import crand "crypto/rand"
-import "math/big"
-import "encoding/base64"
-import "time"
-import "fmt"
+import (
+	"log"
+	"math/rand"
+	"runtime"
+	"sync"
+	"testing"
+
+	"6.824/src/labrpc"
+
+	crand "crypto/rand"
+	"encoding/base64"
+	"fmt"
+	"math/big"
+	"time"
+)
 
 func randstring(n int) string {
 	b := make([]byte, 2*n)
@@ -187,7 +191,6 @@ func (cfg *config) start1(i int) {
 					cfg.maxIndex = m.CommandIndex
 				}
 				cfg.mu.Unlock()
-
 				if m.CommandIndex > 1 && prevok == false {
 					err_msg = fmt.Sprintf("server %v apply out of order %v", i, m.CommandIndex)
 				}
@@ -370,6 +373,7 @@ func (cfg *config) nCommitted(index int) (int, interface{}) {
 
 		cfg.mu.Lock()
 		cmd1, ok := cfg.logs[i][index]
+		DPrintf("logs are %v", cfg.logs)
 		cfg.mu.Unlock()
 
 		if ok {
@@ -456,8 +460,10 @@ func (cfg *config) one(cmd interface{}, expectedServers int, retry bool) int {
 			t1 := time.Now()
 			for time.Since(t1).Seconds() < 2 {
 				nd, cmd1 := cfg.nCommitted(index)
+				DPrintf("nd is %d expectedServers is %d", nd, expectedServers)
 				if nd > 0 && nd >= expectedServers {
 					// committed
+					DPrintf("cmd is %v cmd1 is %v", cmd, cmd1)
 					if cmd1 == cmd {
 						// and it was the command we submitted.
 						return index
@@ -466,12 +472,14 @@ func (cfg *config) one(cmd interface{}, expectedServers int, retry bool) int {
 				time.Sleep(20 * time.Millisecond)
 			}
 			if retry == false {
+				DPrintf("failed inside")
 				cfg.t.Fatalf("one(%v) failed to reach agreement", cmd)
 			}
 		} else {
 			time.Sleep(50 * time.Millisecond)
 		}
 	}
+	DPrintf("failed outsite")
 	cfg.t.Fatalf("one(%v) failed to reach agreement", cmd)
 	return -1
 }

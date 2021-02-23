@@ -14,6 +14,27 @@ import "strconv"
 // and reply for an RPC.
 //
 
+type GetTaskArgs struct {
+	NodeId int
+}
+
+type GetTaskReply struct {
+	TaskType int
+	NodeId   int
+	FileName string
+}
+
+type NotifyReduceTaskFinishedArgs struct {
+	TaskType         int
+	NodeId           int
+	FileName         string
+	IntermediateFile string
+	Tempfile         string
+}
+
+type NotifyReduceTaskFinishedReply struct {
+}
+
 type ExampleArgs struct {
 	X int
 }
@@ -23,7 +44,6 @@ type ExampleReply struct {
 }
 
 // Add your RPC definitions here.
-
 
 // Cook up a unique-ish UNIX-domain socket name
 // in /var/tmp, for the master.

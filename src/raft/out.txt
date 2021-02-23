@@ -1,0 +1,2084 @@
+2021/02/23 21:51:50 [0] starteed at term [0]
+2021/02/23 21:51:50 [1] starteed at term [0]
+2021/02/23 21:51:50 [2] starteed at term [0]
+Test (2A): initial election ...
+2021/02/23 21:51:51 [1] started election after 372 at term 0
+2021/02/23 21:51:51 [1] convertToCandidate after term [0]
+2021/02/23 21:51:51 [1] become candidate at term[1]
+2021/02/23 21:51:51 [1] started the term 1
+2021/02/23 21:51:51 [1] send RequestVoteRPC  to 0
+2021/02/23 21:51:51 [1] send RequestVoteRPC  to 2
+2021/02/23 21:51:51 [2] voted for [1] in term [1]
+2021/02/23 21:51:51 [0] voted for [1] in term [1]
+2021/02/23 21:51:51 [1] send RequestVoteRPC to 2 success, result - true
+2021/02/23 21:51:51 [1] got vote from 2
+2021/02/23 21:51:51 [1] got 2 votes
+2021/02/23 21:51:51 [1] send RequestVoteRPC to 0 success, result - true
+2021/02/23 21:51:51 [1] got vote from 0
+2021/02/23 21:51:51 [1] got 2 votes
+2021/02/23 21:51:51 [1] aquire lock for becoming leader
+2021/02/23 21:51:51 [1] become leader with log [{0 <nil>}]
+2021/02/23 21:51:51 [1] becomes leader
+2021/02/23 21:51:51 [1] release lock for becoming leader
+2021/02/23 21:51:51 [1] aquire lock for becoming leader
+2021/02/23 21:51:51 [1] already a leader
+2021/02/23 21:51:51 [1] release lock for becoming leader
+2021/02/23 21:51:51 Timer started
+2021/02/23 21:51:51 [1] sending entries [{0 <nil>}] to  0
+2021/02/23 21:51:51 [1] send requestAppendEntries to  0
+2021/02/23 21:51:51 [0] got heartbeat at term [1]
+2021/02/23 21:51:51 [0] Got app entries [{0 <nil>}]]
+2021/02/23 21:51:51 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:51 [1] nextIndex [1 0 0]
+2021/02/23 21:51:51 [1] matchIndex [0 0 -1]
+2021/02/23 21:51:51 [1] sameIndexCounter 1
+2021/02/23 21:51:51 [1] sameIndexCounter 0
+2021/02/23 21:51:51 [1] sameIndexCounter 1
+2021/02/23 21:51:51 Timer started
+2021/02/23 21:51:51 Timer started
+2021/02/23 21:51:51 [1] sending entries [{0 <nil>}] to  2
+2021/02/23 21:51:51 [1] send requestAppendEntries to  2
+2021/02/23 21:51:51 [2] got heartbeat at term [1]
+2021/02/23 21:51:51 [2] Got app entries [{0 <nil>}]]
+==================
+WARNING: DATA RACE
+Write at 0x00c00014a400 by goroutine 33:
+  6.824/src/raft.(*Raft).AppendEntries()
+      /Users/admin/code/go/src/6.824/src/raft/raft.go:220 +0x690
+  runtime.call32()
+      /usr/local/go/src/runtime/asm_amd64.s:551 +0x3d
+  reflect.Value.Call()
+      /usr/local/go/src/reflect/value.go:337 +0xd8
+  6.824/src/labrpc.(*Service).dispatch()
+      /Users/admin/code/go/src/6.824/src/labrpc/labrpc.go:494 +0x824
+  6.824/src/labrpc.(*Server).dispatch()
+      /Users/admin/code/go/src/6.824/src/labrpc/labrpc.go:418 +0x617
+  6.824/src/labrpc.(*Network).processReq.func1()
+      /Users/admin/code/go/src/6.824/src/labrpc/labrpc.go:238 +0xa4
+
+Previous read at 0x00c00014a400 by goroutine 14:
+  6.824/src/raft.(*Raft).electionTimeout()
+      /Users/admin/code/go/src/6.824/src/raft/raft.go:237 +0x1e7
+
+Goroutine 33 (running) created at:
+  6.824/src/labrpc.(*Network).processReq()
+      /Users/admin/code/go/src/6.824/src/labrpc/labrpc.go:237 +0x17c
+
+Goroutine 14 (running) created at:
+  6.824/src/raft.Make()
+      /Users/admin/code/go/src/6.824/src/raft/raft.go:535 +0x36c
+  6.824/src/raft.(*config).start1()
+      /Users/admin/code/go/src/6.824/src/raft/config.go:208 +0x954
+  6.824/src/raft.make_config()
+      /Users/admin/code/go/src/6.824/src/raft/config.go:91 +0x7fc
+  6.824/src/raft.TestInitialElection2A()
+      /Users/admin/code/go/src/6.824/src/raft/test_test.go:26 +0x64
+  testing.tRunner()
+      /usr/local/go/src/testing/testing.go:1194 +0x202
+==================
+2021/02/23 21:51:51 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:51 [1] nextIndex [1 0 1]
+2021/02/23 21:51:51 [1] matchIndex [0 0 0]
+2021/02/23 21:51:51 [1] sameIndexCounter 0
+2021/02/23 21:51:51 [1] sameIndexCounter 1
+2021/02/23 21:51:51 [1] sameIndexCounter 2
+2021/02/23 21:51:51 [1] got majority
+2021/02/23 21:51:51 [1] send entreis [{0 <nil>}]
+2021/02/23 21:51:51 Timer started
+2021/02/23 21:51:51 [1] sending entries [] to  0
+2021/02/23 21:51:51 [1] send requestAppendEntries to  0
+2021/02/23 21:51:51 [0] got heartbeat at term [1]
+2021/02/23 21:51:51 [0] commitIndex  0 LeaderCommit 0
+2021/02/23 21:51:51 [0] Got app entries []]
+2021/02/23 21:51:51 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:51 [1] nextIndex [1 0 1]
+2021/02/23 21:51:51 [1] matchIndex [0 0 0]
+2021/02/23 21:51:51 [1] sameIndexCounter 0
+2021/02/23 21:51:51 [1] sameIndexCounter 1
+2021/02/23 21:51:51 [1] sameIndexCounter 2
+2021/02/23 21:51:51 [1] got majority
+2021/02/23 21:51:51 [1] send entreis []
+2021/02/23 21:51:51 Timer started
+2021/02/23 21:51:51 Timer started
+2021/02/23 21:51:51 [1] sending entries [] to  2
+2021/02/23 21:51:51 [1] send requestAppendEntries to  2
+2021/02/23 21:51:51 [2] got heartbeat at term [1]
+2021/02/23 21:51:51 [0] commitIndex  0 LeaderCommit 0
+2021/02/23 21:51:51 [2] Got app entries []]
+2021/02/23 21:51:51 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:51 [1] nextIndex [1 0 1]
+2021/02/23 21:51:51 [1] matchIndex [0 0 0]
+2021/02/23 21:51:51 [1] sameIndexCounter 0
+2021/02/23 21:51:51 [1] sameIndexCounter 1
+2021/02/23 21:51:51 [1] sameIndexCounter 2
+2021/02/23 21:51:51 [1] got majority
+2021/02/23 21:51:51 [1] send entreis []
+2021/02/23 21:51:51 Timer started
+2021/02/23 21:51:51 [1] sending entries [] to  0
+2021/02/23 21:51:51 [1] send requestAppendEntries to  0
+2021/02/23 21:51:51 [0] got heartbeat at term [1]
+2021/02/23 21:51:51 [0] commitIndex  0 LeaderCommit 0
+2021/02/23 21:51:51 [0] Got app entries []]
+2021/02/23 21:51:51 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:51 [1] nextIndex [1 0 1]
+2021/02/23 21:51:51 [1] matchIndex [0 0 0]
+2021/02/23 21:51:51 [1] sameIndexCounter 0
+2021/02/23 21:51:51 [1] sameIndexCounter 1
+2021/02/23 21:51:51 [1] sameIndexCounter 2
+2021/02/23 21:51:51 [1] got majority
+2021/02/23 21:51:51 [1] send entreis []
+2021/02/23 21:51:52 Timer started
+2021/02/23 21:51:52 Timer started
+2021/02/23 21:51:52 [1] sending entries [] to  2
+2021/02/23 21:51:52 [1] send requestAppendEntries to  2
+2021/02/23 21:51:52 [2] got heartbeat at term [1]
+2021/02/23 21:51:52 [0] commitIndex  0 LeaderCommit 0
+2021/02/23 21:51:52 [2] Got app entries []]
+2021/02/23 21:51:52 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:52 [1] nextIndex [1 0 1]
+2021/02/23 21:51:52 [1] matchIndex [0 0 0]
+2021/02/23 21:51:52 [1] sameIndexCounter 0
+2021/02/23 21:51:52 [1] sameIndexCounter 1
+2021/02/23 21:51:52 [1] sameIndexCounter 2
+2021/02/23 21:51:52 [1] got majority
+2021/02/23 21:51:52 [1] send entreis []
+2021/02/23 21:51:52 Timer started
+2021/02/23 21:51:52 [1] sending entries [] to  0
+2021/02/23 21:51:52 [1] send requestAppendEntries to  0
+2021/02/23 21:51:52 [0] got heartbeat at term [1]
+2021/02/23 21:51:52 [0] commitIndex  0 LeaderCommit 0
+2021/02/23 21:51:52 [0] Got app entries []]
+2021/02/23 21:51:52 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:52 [1] nextIndex [1 0 1]
+2021/02/23 21:51:52 [1] matchIndex [0 0 0]
+2021/02/23 21:51:52 [1] sameIndexCounter 0
+2021/02/23 21:51:52 [1] sameIndexCounter 1
+2021/02/23 21:51:52 [1] sameIndexCounter 2
+2021/02/23 21:51:52 [1] got majority
+2021/02/23 21:51:52 [1] send entreis []
+2021/02/23 21:51:52 Timer started
+2021/02/23 21:51:52 Timer started
+2021/02/23 21:51:52 [1] sending entries [] to  2
+2021/02/23 21:51:52 [1] send requestAppendEntries to  2
+2021/02/23 21:51:52 [2] got heartbeat at term [1]
+2021/02/23 21:51:52 [0] commitIndex  0 LeaderCommit 0
+2021/02/23 21:51:52 [2] Got app entries []]
+2021/02/23 21:51:52 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:52 [1] nextIndex [1 0 1]
+2021/02/23 21:51:52 [1] matchIndex [0 0 0]
+2021/02/23 21:51:52 [1] sameIndexCounter 0
+2021/02/23 21:51:52 [1] sameIndexCounter 1
+2021/02/23 21:51:52 [1] sameIndexCounter 2
+2021/02/23 21:51:52 [1] got majority
+2021/02/23 21:51:52 [1] send entreis []
+2021/02/23 21:51:52 Timer started
+2021/02/23 21:51:52 [1] sending entries [] to  0
+2021/02/23 21:51:52 [1] send requestAppendEntries to  0
+2021/02/23 21:51:52 [0] got heartbeat at term [1]
+2021/02/23 21:51:52 [0] commitIndex  0 LeaderCommit 0
+2021/02/23 21:51:52 [0] Got app entries []]
+2021/02/23 21:51:52 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:52 [1] nextIndex [1 0 1]
+2021/02/23 21:51:52 [1] matchIndex [0 0 0]
+2021/02/23 21:51:52 [1] sameIndexCounter 0
+2021/02/23 21:51:52 [1] sameIndexCounter 1
+2021/02/23 21:51:52 [1] sameIndexCounter 2
+2021/02/23 21:51:52 [1] got majority
+2021/02/23 21:51:52 [1] send entreis []
+2021/02/23 21:51:52 Timer started
+2021/02/23 21:51:52 Timer started
+2021/02/23 21:51:52 [1] sending entries [] to  2
+2021/02/23 21:51:52 [1] send requestAppendEntries to  2
+2021/02/23 21:51:52 [2] got heartbeat at term [1]
+2021/02/23 21:51:52 [0] commitIndex  0 LeaderCommit 0
+2021/02/23 21:51:52 [2] Got app entries []]
+2021/02/23 21:51:52 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:52 [1] nextIndex [1 0 1]
+2021/02/23 21:51:52 [1] matchIndex [0 0 0]
+2021/02/23 21:51:52 [1] sameIndexCounter 0
+2021/02/23 21:51:52 [1] sameIndexCounter 1
+2021/02/23 21:51:52 [1] sameIndexCounter 2
+2021/02/23 21:51:52 [1] got majority
+2021/02/23 21:51:52 [1] send entreis []
+2021/02/23 21:51:52 Timer started
+2021/02/23 21:51:52 [1] sending entries [] to  0
+2021/02/23 21:51:52 [1] send requestAppendEntries to  0
+2021/02/23 21:51:52 [0] got heartbeat at term [1]
+2021/02/23 21:51:52 [0] commitIndex  0 LeaderCommit 0
+2021/02/23 21:51:52 [0] Got app entries []]
+2021/02/23 21:51:52 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:52 [1] nextIndex [1 0 1]
+2021/02/23 21:51:52 [1] matchIndex [0 0 0]
+2021/02/23 21:51:52 [1] sameIndexCounter 0
+2021/02/23 21:51:52 [1] sameIndexCounter 1
+2021/02/23 21:51:52 [1] sameIndexCounter 2
+2021/02/23 21:51:52 [1] got majority
+2021/02/23 21:51:52 [1] send entreis []
+2021/02/23 21:51:52 Timer started
+2021/02/23 21:51:53 Timer started
+2021/02/23 21:51:53 [1] sending entries [] to  2
+2021/02/23 21:51:53 [1] send requestAppendEntries to  2
+2021/02/23 21:51:53 [2] got heartbeat at term [1]
+2021/02/23 21:51:53 [0] commitIndex  0 LeaderCommit 0
+2021/02/23 21:51:53 [2] Got app entries []]
+2021/02/23 21:51:53 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:53 [1] nextIndex [1 0 1]
+2021/02/23 21:51:53 [1] matchIndex [0 0 0]
+2021/02/23 21:51:53 [1] sameIndexCounter 0
+2021/02/23 21:51:53 [1] sameIndexCounter 1
+2021/02/23 21:51:53 [1] sameIndexCounter 2
+2021/02/23 21:51:53 [1] got majority
+2021/02/23 21:51:53 [1] send entreis []
+2021/02/23 21:51:53 Timer started
+2021/02/23 21:51:53 [1] sending entries [] to  0
+2021/02/23 21:51:53 [1] send requestAppendEntries to  0
+2021/02/23 21:51:53 [0] got heartbeat at term [1]
+2021/02/23 21:51:53 [0] commitIndex  0 LeaderCommit 0
+2021/02/23 21:51:53 [0] Got app entries []]
+2021/02/23 21:51:53 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:53 [1] nextIndex [1 0 1]
+2021/02/23 21:51:53 [1] matchIndex [0 0 0]
+2021/02/23 21:51:53 [1] sameIndexCounter 0
+2021/02/23 21:51:53 [1] sameIndexCounter 1
+2021/02/23 21:51:53 [1] sameIndexCounter 2
+2021/02/23 21:51:53 [1] got majority
+2021/02/23 21:51:53 [1] send entreis []
+2021/02/23 21:51:53 Timer started
+2021/02/23 21:51:53 Timer started
+2021/02/23 21:51:53 [1] sending entries [] to  2
+2021/02/23 21:51:53 [1] send requestAppendEntries to  2
+2021/02/23 21:51:53 [2] got heartbeat at term [1]
+2021/02/23 21:51:53 [0] commitIndex  0 LeaderCommit 0
+2021/02/23 21:51:53 [2] Got app entries []]
+2021/02/23 21:51:53 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:53 [1] nextIndex [1 0 1]
+2021/02/23 21:51:53 [1] matchIndex [0 0 0]
+2021/02/23 21:51:53 [1] sameIndexCounter 0
+2021/02/23 21:51:53 [1] sameIndexCounter 1
+2021/02/23 21:51:53 [1] sameIndexCounter 2
+2021/02/23 21:51:53 [1] got majority
+2021/02/23 21:51:53 [1] send entreis []
+2021/02/23 21:51:53 Timer started
+2021/02/23 21:51:53 [1] sending entries [] to  0
+2021/02/23 21:51:53 [1] send requestAppendEntries to  0
+2021/02/23 21:51:53 [0] got heartbeat at term [1]
+2021/02/23 21:51:53 [0] commitIndex  0 LeaderCommit 0
+2021/02/23 21:51:53 [0] Got app entries []]
+2021/02/23 21:51:53 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:53 [1] nextIndex [1 0 1]
+2021/02/23 21:51:53 [1] matchIndex [0 0 0]
+2021/02/23 21:51:53 [1] sameIndexCounter 0
+2021/02/23 21:51:53 [1] sameIndexCounter 1
+2021/02/23 21:51:53 [1] sameIndexCounter 2
+2021/02/23 21:51:53 [1] got majority
+2021/02/23 21:51:53 [1] send entreis []
+2021/02/23 21:51:53 Timer started
+2021/02/23 21:51:53 Timer started
+2021/02/23 21:51:53 [1] sending entries [] to  2
+2021/02/23 21:51:53 [1] send requestAppendEntries to  2
+2021/02/23 21:51:53 [2] got heartbeat at term [1]
+2021/02/23 21:51:53 [0] commitIndex  0 LeaderCommit 0
+2021/02/23 21:51:53 [2] Got app entries []]
+2021/02/23 21:51:53 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:53 [1] nextIndex [1 0 1]
+2021/02/23 21:51:53 [1] matchIndex [0 0 0]
+2021/02/23 21:51:53 [1] sameIndexCounter 0
+2021/02/23 21:51:53 [1] sameIndexCounter 1
+2021/02/23 21:51:53 [1] sameIndexCounter 2
+2021/02/23 21:51:53 [1] got majority
+2021/02/23 21:51:53 [1] send entreis []
+2021/02/23 21:51:53 Timer started
+2021/02/23 21:51:53 [1] sending entries [] to  0
+2021/02/23 21:51:53 [1] send requestAppendEntries to  0
+2021/02/23 21:51:53 [0] got heartbeat at term [1]
+2021/02/23 21:51:53 [0] commitIndex  0 LeaderCommit 0
+2021/02/23 21:51:53 [0] Got app entries []]
+2021/02/23 21:51:53 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:53 [1] nextIndex [1 0 1]
+2021/02/23 21:51:53 [1] matchIndex [0 0 0]
+2021/02/23 21:51:53 [1] sameIndexCounter 0
+2021/02/23 21:51:53 [1] sameIndexCounter 1
+2021/02/23 21:51:53 [1] sameIndexCounter 2
+2021/02/23 21:51:53 [1] got majority
+2021/02/23 21:51:53 [1] send entreis []
+2021/02/23 21:51:53 Timer started
+2021/02/23 21:51:54 Timer started
+2021/02/23 21:51:54 [1] sending entries [] to  2
+2021/02/23 21:51:54 [1] send requestAppendEntries to  2
+2021/02/23 21:51:54 [2] got heartbeat at term [1]
+2021/02/23 21:51:54 [0] commitIndex  0 LeaderCommit 0
+2021/02/23 21:51:54 [2] Got app entries []]
+2021/02/23 21:51:54 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:54 [1] nextIndex [1 0 1]
+2021/02/23 21:51:54 [1] matchIndex [0 0 0]
+2021/02/23 21:51:54 [1] sameIndexCounter 0
+2021/02/23 21:51:54 [1] sameIndexCounter 1
+2021/02/23 21:51:54 [1] sameIndexCounter 2
+2021/02/23 21:51:54 [1] got majority
+2021/02/23 21:51:54 [1] send entreis []
+2021/02/23 21:51:54 [0] killed
+2021/02/23 21:51:54 [0] got command [{0 <nil>}]
+2021/02/23 21:51:54 [1] killed
+2021/02/23 21:51:54 [1] got command [{0 <nil>}]
+2021/02/23 21:51:54 Leader [1] committed log 0
+2021/02/23 21:51:54 [2] killed
+2021/02/23 21:51:54 [2] got command [{0 <nil>}]
+--- FAIL: TestInitialElection2A (3.13s)
+    testing.go:1093: race detected during execution of test
+2021/02/23 21:51:54 [0] starteed at term [0]
+2021/02/23 21:51:54 [1] starteed at term [0]
+2021/02/23 21:51:54 [2] starteed at term [0]
+Test (2A): election after network failure ...
+2021/02/23 21:51:54 [0] started election after 331 at term 1
+2021/02/23 21:51:54 [1] started election after 332 at term 0
+2021/02/23 21:51:54 [1] convertToCandidate after term [0]
+2021/02/23 21:51:54 [1] become candidate at term[1]
+2021/02/23 21:51:54 [1] started the term 1
+2021/02/23 21:51:54 [1] send RequestVoteRPC  to 0
+2021/02/23 21:51:54 [1] send RequestVoteRPC  to 2
+2021/02/23 21:51:54 [0] voted for [1] in term [1]
+2021/02/23 21:51:54 [2] voted for [1] in term [1]
+2021/02/23 21:51:54 [1] send RequestVoteRPC to 0 success, result - true
+2021/02/23 21:51:54 [1] got vote from 0
+2021/02/23 21:51:54 [1] got 2 votes
+2021/02/23 21:51:54 [1] aquire lock for becoming leader
+2021/02/23 21:51:54 [1] become leader with log [{0 <nil>}]
+2021/02/23 21:51:54 [1] becomes leader
+2021/02/23 21:51:54 [1] send RequestVoteRPC to 2 success, result - true
+2021/02/23 21:51:54 [1] got vote from 2
+2021/02/23 21:51:54 [1] release lock for becoming leader
+2021/02/23 21:51:54 Timer started
+2021/02/23 21:51:54 [1] got 2 votes
+2021/02/23 21:51:54 [1] sending entries [{0 <nil>}] to  0
+2021/02/23 21:51:54 [1] send requestAppendEntries to  0
+2021/02/23 21:51:54 [0] got heartbeat at term [1]
+2021/02/23 21:51:54 [0] Got app entries [{0 <nil>}]]
+2021/02/23 21:51:54 [1] requestAppendEntries reqeust result -  true
+2021/02/23 21:51:54 [1] nextIndex [1 0 0]
+2021/02/23 21:51:54 [1] matchIndex [0 0 -1]
+2021/02/23 21:51:54 [1] sameIndexCounter 1
+2021/02/23 21:51:54 [1] sameIndexCounter 0
+2021/02/23 21:51:54 [1] sameIndexCounter 1
+2021/02/23 21:51:54 [1] aquire lock for becoming leader
+2021/02/23 21:51:54 [1] already a leader
+2021/02/23 21:51:54 [1] release lock for becoming leader
+2021/02/23 21:51:54 Timer started
+2021/02/23 21:51:54 Timer started
+2021/02/23 21:51:54 [1] sending entries [{0 <nil>}] to  2
+2021/02/23 21:51:54 [1] send requestAppendEntries to  2
+2021/02/23 21:51:54 Timer started
+2021/02/23 21:51:54 Timer started
+2021/02/23 21:51:54 [0] started election after 323 at term 1
+2021/02/23 21:51:54 [0] convertToCandidate after term [1]
+2021/02/23 21:51:54 [0] become candidate at term[2]
+2021/02/23 21:51:54 [0] started the term 2
+2021/02/23 21:51:54 [0] send RequestVoteRPC  to 2
+2021/02/23 21:51:54 [0] send RequestVoteRPC  to 1
+2021/02/23 21:51:54 [2] voted for [0] in term [2]
+2021/02/23 21:51:54 [0] send RequestVoteRPC to 2 success, result - true
+2021/02/23 21:51:54 [0] got vote from 2
+2021/02/23 21:51:54 [0] got 2 votes
+2021/02/23 21:51:54 [0] aquire lock for becoming leader
+2021/02/23 21:51:54 [0] become leader with log [{0 <nil>} {0 <nil>}]
+2021/02/23 21:51:54 [0] becomes leader
+2021/02/23 21:51:54 [0] release lock for becoming leader
+2021/02/23 21:51:54 Timer started
+2021/02/23 21:51:54 Timer started
+2021/02/23 21:51:54 Timer started
+2021/02/23 21:51:54 [0] sending entries [{0 <nil>} {0 <nil>}] to  1
+2021/02/23 21:51:54 [0] send requestAppendEntries to  1
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:55 [2] started election after 487 at term 2
+2021/02/23 21:51:55 [2] convertToCandidate after term [2]
+2021/02/23 21:51:55 [2] become candidate at term[3]
+2021/02/23 21:51:55 [2] started the term 3
+2021/02/23 21:51:55 [2] send RequestVoteRPC  to 0
+2021/02/23 21:51:55 [2] send RequestVoteRPC  to 1
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:55 Timer started
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 [2] started election after 420 at term 3
+2021/02/23 21:51:56 [2] convertToCandidate after term [3]
+2021/02/23 21:51:56 [2] become candidate at term[4]
+2021/02/23 21:51:56 [2] started the term 4
+2021/02/23 21:51:56 [2] send RequestVoteRPC  to 0
+2021/02/23 21:51:56 [2] send RequestVoteRPC  to 1
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:56 Timer started
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:57 [2] started election after 487 at term 4
+2021/02/23 21:51:57 [2] convertToCandidate after term [4]
+2021/02/23 21:51:57 [2] become candidate at term[5]
+2021/02/23 21:51:57 [2] started the term 5
+2021/02/23 21:51:57 [2] send RequestVoteRPC  to 0
+2021/02/23 21:51:57 [2] send RequestVoteRPC  to 1
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:57 [2] started election after 331 at term 5
+2021/02/23 21:51:57 [2] convertToCandidate after term [5]
+2021/02/23 21:51:57 [2] become candidate at term[6]
+2021/02/23 21:51:57 [2] started the term 6
+2021/02/23 21:51:57 [2] send RequestVoteRPC  to 0
+2021/02/23 21:51:57 [2] send RequestVoteRPC  to 1
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:57 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:57 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 [2] started election after 412 at term 6
+2021/02/23 21:51:58 [2] convertToCandidate after term [6]
+2021/02/23 21:51:58 [2] become candidate at term[7]
+2021/02/23 21:51:58 [2] started the term 7
+2021/02/23 21:51:58 [2] send RequestVoteRPC  to 0
+2021/02/23 21:51:58 [2] send RequestVoteRPC  to 1
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:58 Timer started
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 [2] started election after 455 at term 7
+2021/02/23 21:51:59 [2] convertToCandidate after term [7]
+2021/02/23 21:51:59 [2] become candidate at term[8]
+2021/02/23 21:51:59 [2] started the term 8
+2021/02/23 21:51:59 [2] send RequestVoteRPC  to 0
+2021/02/23 21:51:59 [2] send RequestVoteRPC  to 1
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 [1] requestAppendEntries reqeust result -  false
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 [0] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:51:59 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 [2] started election after 477 at term 8
+2021/02/23 21:52:00 [2] convertToCandidate after term [8]
+2021/02/23 21:52:00 [2] become candidate at term[9]
+2021/02/23 21:52:00 [2] started the term 9
+2021/02/23 21:52:00 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:00 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:00 Timer started
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 [2] started election after 387 at term 9
+2021/02/23 21:52:01 [2] convertToCandidate after term [9]
+2021/02/23 21:52:01 [2] become candidate at term[10]
+2021/02/23 21:52:01 [2] started the term 10
+2021/02/23 21:52:01 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:01 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 [0] requestAppendEntries reqeust result -  false
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:01 [2] started election after 424 at term 10
+2021/02/23 21:52:01 [2] convertToCandidate after term [10]
+2021/02/23 21:52:01 [2] become candidate at term[11]
+2021/02/23 21:52:01 [2] started the term 11
+2021/02/23 21:52:01 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:01 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:01 Timer started
+2021/02/23 21:52:02 Timer started
+2021/02/23 21:52:02 Timer started
+2021/02/23 21:52:02 Timer started
+2021/02/23 21:52:02 Timer started
+2021/02/23 21:52:02 Timer started
+2021/02/23 21:52:02 Timer started
+2021/02/23 21:52:02 Timer started
+2021/02/23 21:52:02 Timer started
+2021/02/23 21:52:02 Timer started
+2021/02/23 21:52:02 Timer started
+2021/02/23 21:52:02 Timer started
+2021/02/23 21:52:02 Timer started
+2021/02/23 21:52:02 Timer started
+2021/02/23 21:52:02 Timer started
+2021/02/23 21:52:02 [2] started election after 329 at term 11
+2021/02/23 21:52:02 [2] convertToCandidate after term [11]
+2021/02/23 21:52:02 [2] become candidate at term[12]
+2021/02/23 21:52:02 [2] started the term 12
+2021/02/23 21:52:02 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:02 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:02 Timer started
+2021/02/23 21:52:02 Timer started
+2021/02/23 21:52:02 Timer started
+2021/02/23 21:52:02 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 [2] started election after 485 at term 12
+2021/02/23 21:52:03 [2] convertToCandidate after term [12]
+2021/02/23 21:52:03 [2] become candidate at term[13]
+2021/02/23 21:52:03 [2] started the term 13
+2021/02/23 21:52:03 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:03 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:03 Timer started
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 [2] started election after 326 at term 13
+2021/02/23 21:52:04 [2] convertToCandidate after term [13]
+2021/02/23 21:52:04 [2] become candidate at term[14]
+2021/02/23 21:52:04 [2] started the term 14
+2021/02/23 21:52:04 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:04 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:04 Timer started
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:05 [2] started election after 384 at term 14
+2021/02/23 21:52:05 [2] convertToCandidate after term [14]
+2021/02/23 21:52:05 [2] become candidate at term[15]
+2021/02/23 21:52:05 [2] started the term 15
+2021/02/23 21:52:05 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:05 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:05 Timer started
+2021/02/23 21:52:06 [2] started election after 429 at term 15
+2021/02/23 21:52:06 [2] convertToCandidate after term [15]
+2021/02/23 21:52:06 [2] become candidate at term[16]
+2021/02/23 21:52:06 [2] started the term 16
+2021/02/23 21:52:06 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:06 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 [2] started election after 435 at term 16
+2021/02/23 21:52:06 [2] convertToCandidate after term [16]
+2021/02/23 21:52:06 [2] become candidate at term[17]
+2021/02/23 21:52:06 [2] started the term 17
+2021/02/23 21:52:06 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:06 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:06 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:06 Timer started
+2021/02/23 21:52:07 Timer started
+2021/02/23 21:52:07 Timer started
+2021/02/23 21:52:07 Timer started
+2021/02/23 21:52:07 Timer started
+2021/02/23 21:52:07 Timer started
+2021/02/23 21:52:07 Timer started
+2021/02/23 21:52:07 Timer started
+2021/02/23 21:52:07 Timer started
+2021/02/23 21:52:07 Timer started
+2021/02/23 21:52:07 Timer started
+2021/02/23 21:52:07 Timer started
+2021/02/23 21:52:07 Timer started
+2021/02/23 21:52:07 Timer started
+2021/02/23 21:52:07 Timer started
+2021/02/23 21:52:07 [2] started election after 431 at term 17
+2021/02/23 21:52:07 [2] convertToCandidate after term [17]
+2021/02/23 21:52:07 [2] become candidate at term[18]
+2021/02/23 21:52:07 [2] started the term 18
+2021/02/23 21:52:07 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:07 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:07 Timer started
+2021/02/23 21:52:07 Timer started
+2021/02/23 21:52:07 Timer started
+2021/02/23 21:52:07 Timer started
+2021/02/23 21:52:07 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:07 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 [2] started election after 417 at term 18
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 [2] convertToCandidate after term [18]
+2021/02/23 21:52:08 [2] become candidate at term[19]
+2021/02/23 21:52:08 [2] started the term 19
+2021/02/23 21:52:08 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:08 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:08 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:08 Timer started
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 [2] started election after 419 at term 19
+2021/02/23 21:52:09 [2] convertToCandidate after term [19]
+2021/02/23 21:52:09 [2] become candidate at term[20]
+2021/02/23 21:52:09 [2] started the term 20
+2021/02/23 21:52:09 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:09 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:09 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 [2] started election after 313 at term 20
+2021/02/23 21:52:10 [2] convertToCandidate after term [20]
+2021/02/23 21:52:10 [2] become candidate at term[21]
+2021/02/23 21:52:10 [2] started the term 21
+2021/02/23 21:52:10 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:10 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:10 Timer started
+2021/02/23 21:52:11 [2] started election after 381 at term 21
+2021/02/23 21:52:11 [2] convertToCandidate after term [21]
+2021/02/23 21:52:11 [2] become candidate at term[22]
+2021/02/23 21:52:11 [2] started the term 22
+2021/02/23 21:52:11 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:11 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:11 Timer started
+2021/02/23 21:52:11 Timer started
+2021/02/23 21:52:11 Timer started
+2021/02/23 21:52:11 Timer started
+2021/02/23 21:52:11 Timer started
+2021/02/23 21:52:11 Timer started
+2021/02/23 21:52:11 Timer started
+2021/02/23 21:52:11 Timer started
+2021/02/23 21:52:11 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:11 Timer started
+2021/02/23 21:52:11 Timer started
+2021/02/23 21:52:11 Timer started
+2021/02/23 21:52:11 Timer started
+2021/02/23 21:52:11 Timer started
+2021/02/23 21:52:11 Timer started
+2021/02/23 21:52:11 Timer started
+2021/02/23 21:52:11 Timer started
+2021/02/23 21:52:11 Timer started
+2021/02/23 21:52:11 Timer started
+2021/02/23 21:52:12 [2] started election after 468 at term 22
+2021/02/23 21:52:12 [2] convertToCandidate after term [22]
+2021/02/23 21:52:12 [2] become candidate at term[23]
+2021/02/23 21:52:12 [2] started the term 23
+2021/02/23 21:52:12 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:12 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 Timer started
+2021/02/23 21:52:12 [2] started election after 435 at term 23
+2021/02/23 21:52:12 [2] convertToCandidate after term [23]
+2021/02/23 21:52:12 [2] become candidate at term[24]
+2021/02/23 21:52:12 [2] started the term 24
+2021/02/23 21:52:12 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:12 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 [2] started election after 384 at term 24
+2021/02/23 21:52:13 [2] convertToCandidate after term [24]
+2021/02/23 21:52:13 [2] become candidate at term[25]
+2021/02/23 21:52:13 [2] started the term 25
+2021/02/23 21:52:13 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:13 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:13 Timer started
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 [2] started election after 353 at term 25
+2021/02/23 21:52:14 [2] convertToCandidate after term [25]
+2021/02/23 21:52:14 [2] become candidate at term[26]
+2021/02/23 21:52:14 [2] started the term 26
+2021/02/23 21:52:14 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:14 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:14 Timer started
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 [2] started election after 341 at term 26
+2021/02/23 21:52:15 [2] convertToCandidate after term [26]
+2021/02/23 21:52:15 [2] become candidate at term[27]
+2021/02/23 21:52:15 [2] started the term 27
+2021/02/23 21:52:15 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:15 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 [2] started election after 401 at term 27
+2021/02/23 21:52:15 [2] convertToCandidate after term [27]
+2021/02/23 21:52:15 [2] become candidate at term[28]
+2021/02/23 21:52:15 [2] started the term 28
+2021/02/23 21:52:15 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:15 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:15 Timer started
+2021/02/23 21:52:16 Timer started
+2021/02/23 21:52:16 Timer started
+2021/02/23 21:52:16 Timer started
+2021/02/23 21:52:16 Timer started
+2021/02/23 21:52:16 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:16 Timer started
+2021/02/23 21:52:16 Timer started
+2021/02/23 21:52:16 Timer started
+2021/02/23 21:52:16 Timer started
+2021/02/23 21:52:16 Timer started
+2021/02/23 21:52:16 Timer started
+2021/02/23 21:52:16 Timer started
+2021/02/23 21:52:16 Timer started
+2021/02/23 21:52:16 Timer started
+2021/02/23 21:52:16 Timer started
+2021/02/23 21:52:16 [2] started election after 468 at term 28
+2021/02/23 21:52:16 [2] convertToCandidate after term [28]
+2021/02/23 21:52:16 [2] become candidate at term[29]
+2021/02/23 21:52:16 [2] started the term 29
+2021/02/23 21:52:16 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:16 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:16 Timer started
+2021/02/23 21:52:16 Timer started
+2021/02/23 21:52:16 Timer started
+2021/02/23 21:52:16 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 [2] started election after 304 at term 29
+2021/02/23 21:52:17 [2] convertToCandidate after term [29]
+2021/02/23 21:52:17 [2] become candidate at term[30]
+2021/02/23 21:52:17 [2] started the term 30
+2021/02/23 21:52:17 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:17 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:17 Timer started
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 [2] started election after 418 at term 30
+2021/02/23 21:52:18 [2] convertToCandidate after term [30]
+2021/02/23 21:52:18 [2] become candidate at term[31]
+2021/02/23 21:52:18 [2] started the term 31
+2021/02/23 21:52:18 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:18 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 Timer started
+2021/02/23 21:52:18 [2] started election after 365 at term 31
+2021/02/23 21:52:18 [2] convertToCandidate after term [31]
+2021/02/23 21:52:18 [2] become candidate at term[32]
+2021/02/23 21:52:18 [2] started the term 32
+2021/02/23 21:52:18 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:18 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 [2] started election after 376 at term 32
+2021/02/23 21:52:19 [2] convertToCandidate after term [32]
+2021/02/23 21:52:19 [2] become candidate at term[33]
+2021/02/23 21:52:19 [2] started the term 33
+2021/02/23 21:52:19 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:19 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:19 Timer started
+2021/02/23 21:52:20 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 [2] started election after 467 at term 33
+2021/02/23 21:52:20 [2] convertToCandidate after term [33]
+2021/02/23 21:52:20 [2] become candidate at term[34]
+2021/02/23 21:52:20 [2] started the term 34
+2021/02/23 21:52:20 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:20 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:20 Timer started
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:21 [2] started election after 351 at term 34
+2021/02/23 21:52:21 [2] convertToCandidate after term [34]
+2021/02/23 21:52:21 [2] become candidate at term[35]
+2021/02/23 21:52:21 [2] started the term 35
+2021/02/23 21:52:21 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:21 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:21 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:21 Timer started
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:22 [2] started election after 395 at term 35
+2021/02/23 21:52:22 [2] convertToCandidate after term [35]
+2021/02/23 21:52:22 [2] become candidate at term[36]
+2021/02/23 21:52:22 [2] started the term 36
+2021/02/23 21:52:22 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:22 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:22 [2] started election after 369 at term 36
+2021/02/23 21:52:22 [2] convertToCandidate after term [36]
+2021/02/23 21:52:22 [2] become candidate at term[37]
+2021/02/23 21:52:22 [2] started the term 37
+2021/02/23 21:52:22 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:22 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:22 Timer started
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 [2] started election after 397 at term 37
+2021/02/23 21:52:23 [2] convertToCandidate after term [37]
+2021/02/23 21:52:23 [2] become candidate at term[38]
+2021/02/23 21:52:23 [2] started the term 38
+2021/02/23 21:52:23 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:23 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 Timer started
+2021/02/23 21:52:23 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 [2] started election after 374 at term 38
+2021/02/23 21:52:24 [2] convertToCandidate after term [38]
+2021/02/23 21:52:24 [2] become candidate at term[39]
+2021/02/23 21:52:24 [2] started the term 39
+2021/02/23 21:52:24 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:24 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:24 Timer started
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 [2] started election after 425 at term 39
+2021/02/23 21:52:25 [2] convertToCandidate after term [39]
+2021/02/23 21:52:25 [2] become candidate at term[40]
+2021/02/23 21:52:25 [2] started the term 40
+2021/02/23 21:52:25 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:25 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 [2] started election after 355 at term 40
+2021/02/23 21:52:25 [2] convertToCandidate after term [40]
+2021/02/23 21:52:25 [2] become candidate at term[41]
+2021/02/23 21:52:25 [2] started the term 41
+2021/02/23 21:52:25 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:25 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:25 Timer started
+2021/02/23 21:52:26 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:26 Timer started
+2021/02/23 21:52:26 Timer started
+2021/02/23 21:52:26 Timer started
+2021/02/23 21:52:26 Timer started
+2021/02/23 21:52:26 Timer started
+2021/02/23 21:52:26 Timer started
+2021/02/23 21:52:26 Timer started
+2021/02/23 21:52:26 Timer started
+2021/02/23 21:52:26 Timer started
+2021/02/23 21:52:26 Timer started
+2021/02/23 21:52:26 Timer started
+2021/02/23 21:52:26 Timer started
+2021/02/23 21:52:26 [2] started election after 426 at term 41
+2021/02/23 21:52:26 [2] convertToCandidate after term [41]
+2021/02/23 21:52:26 [2] become candidate at term[42]
+2021/02/23 21:52:26 [2] started the term 42
+2021/02/23 21:52:26 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:26 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:26 Timer started
+2021/02/23 21:52:26 Timer started
+2021/02/23 21:52:26 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:26 Timer started
+2021/02/23 21:52:26 Timer started
+2021/02/23 21:52:26 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:26 Timer started
+2021/02/23 21:52:26 Timer started
+2021/02/23 21:52:26 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 [2] started election after 372 at term 42
+2021/02/23 21:52:27 [2] convertToCandidate after term [42]
+2021/02/23 21:52:27 [2] become candidate at term[43]
+2021/02/23 21:52:27 [2] started the term 43
+2021/02/23 21:52:27 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:27 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:27 Timer started
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 [2] started election after 497 at term 43
+2021/02/23 21:52:28 [2] convertToCandidate after term [43]
+2021/02/23 21:52:28 [2] become candidate at term[44]
+2021/02/23 21:52:28 [2] started the term 44
+2021/02/23 21:52:28 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:28 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:28 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 [2] started election after 350 at term 44
+2021/02/23 21:52:29 [2] convertToCandidate after term [44]
+2021/02/23 21:52:29 [2] become candidate at term[45]
+2021/02/23 21:52:29 [2] started the term 45
+2021/02/23 21:52:29 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:29 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:29 Timer started
+2021/02/23 21:52:30 [2] started election after 395 at term 45
+2021/02/23 21:52:30 [2] convertToCandidate after term [45]
+2021/02/23 21:52:30 [2] become candidate at term[46]
+2021/02/23 21:52:30 [2] started the term 46
+2021/02/23 21:52:30 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:30 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 [2] started election after 347 at term 46
+2021/02/23 21:52:30 [2] convertToCandidate after term [46]
+2021/02/23 21:52:30 [2] become candidate at term[47]
+2021/02/23 21:52:30 [2] started the term 47
+2021/02/23 21:52:30 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:30 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:30 Timer started
+2021/02/23 21:52:31 Timer started
+2021/02/23 21:52:31 Timer started
+2021/02/23 21:52:31 Timer started
+2021/02/23 21:52:31 Timer started
+2021/02/23 21:52:31 Timer started
+2021/02/23 21:52:31 Timer started
+2021/02/23 21:52:31 Timer started
+2021/02/23 21:52:31 Timer started
+2021/02/23 21:52:31 Timer started
+2021/02/23 21:52:31 Timer started
+2021/02/23 21:52:31 Timer started
+2021/02/23 21:52:31 Timer started
+2021/02/23 21:52:31 [2] started election after 446 at term 47
+2021/02/23 21:52:31 [2] convertToCandidate after term [47]
+2021/02/23 21:52:31 [2] become candidate at term[48]
+2021/02/23 21:52:31 [2] started the term 48
+2021/02/23 21:52:31 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:31 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:31 Timer started
+2021/02/23 21:52:31 Timer started
+2021/02/23 21:52:31 Timer started
+2021/02/23 21:52:31 Timer started
+2021/02/23 21:52:31 Timer started
+2021/02/23 21:52:31 Timer started
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 [2] started election after 379 at term 48
+2021/02/23 21:52:32 [2] convertToCandidate after term [48]
+2021/02/23 21:52:32 [2] become candidate at term[49]
+2021/02/23 21:52:32 [2] started the term 49
+2021/02/23 21:52:32 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:32 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 Timer started
+2021/02/23 21:52:32 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 [2] started election after 410 at term 49
+2021/02/23 21:52:33 [2] convertToCandidate after term [49]
+2021/02/23 21:52:33 [2] become candidate at term[50]
+2021/02/23 21:52:33 [2] started the term 50
+2021/02/23 21:52:33 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:33 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:33 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:33 Timer started
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 [2] started election after 496 at term 50
+2021/02/23 21:52:34 [2] convertToCandidate after term [50]
+2021/02/23 21:52:34 [2] become candidate at term[51]
+2021/02/23 21:52:34 [2] started the term 51
+2021/02/23 21:52:34 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:34 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 [2] started election after 334 at term 51
+2021/02/23 21:52:34 [2] convertToCandidate after term [51]
+2021/02/23 21:52:34 [2] become candidate at term[52]
+2021/02/23 21:52:34 [2] started the term 52
+2021/02/23 21:52:34 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:34 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:34 Timer started
+2021/02/23 21:52:35 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 [2] started election after 404 at term 52
+2021/02/23 21:52:35 [2] convertToCandidate after term [52]
+2021/02/23 21:52:35 [2] become candidate at term[53]
+2021/02/23 21:52:35 [2] started the term 53
+2021/02/23 21:52:35 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:35 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:35 Timer started
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 [2] started election after 347 at term 53
+2021/02/23 21:52:36 [2] convertToCandidate after term [53]
+2021/02/23 21:52:36 [2] become candidate at term[54]
+2021/02/23 21:52:36 [2] started the term 54
+2021/02/23 21:52:36 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:36 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:36 Timer started
+2021/02/23 21:52:37 Timer started
+2021/02/23 21:52:37 Timer started
+2021/02/23 21:52:37 [2] started election after 482 at term 54
+2021/02/23 21:52:37 [2] convertToCandidate after term [54]
+2021/02/23 21:52:37 [2] become candidate at term[55]
+2021/02/23 21:52:37 [2] started the term 55
+2021/02/23 21:52:37 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:37 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:37 Timer started
+2021/02/23 21:52:37 Timer started
+2021/02/23 21:52:37 Timer started
+2021/02/23 21:52:37 Timer started
+2021/02/23 21:52:37 Timer started
+2021/02/23 21:52:37 Timer started
+2021/02/23 21:52:37 Timer started
+2021/02/23 21:52:37 Timer started
+2021/02/23 21:52:37 Timer started
+2021/02/23 21:52:37 Timer started
+2021/02/23 21:52:37 Timer started
+2021/02/23 21:52:37 Timer started
+2021/02/23 21:52:37 Timer started
+2021/02/23 21:52:37 Timer started
+2021/02/23 21:52:37 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:37 Timer started
+2021/02/23 21:52:37 Timer started
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 [2] started election after 481 at term 55
+2021/02/23 21:52:38 [2] convertToCandidate after term [55]
+2021/02/23 21:52:38 [2] become candidate at term[56]
+2021/02/23 21:52:38 [2] started the term 56
+2021/02/23 21:52:38 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:38 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 [2] started election after 333 at term 56
+2021/02/23 21:52:38 [2] convertToCandidate after term [56]
+2021/02/23 21:52:38 [2] become candidate at term[57]
+2021/02/23 21:52:38 [2] started the term 57
+2021/02/23 21:52:38 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:38 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:38 Timer started
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 [2] started election after 431 at term 57
+2021/02/23 21:52:39 [2] convertToCandidate after term [57]
+2021/02/23 21:52:39 [2] become candidate at term[58]
+2021/02/23 21:52:39 [2] started the term 58
+2021/02/23 21:52:39 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:39 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:39 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 [2] started election after 493 at term 58
+2021/02/23 21:52:40 [2] convertToCandidate after term [58]
+2021/02/23 21:52:40 [2] become candidate at term[59]
+2021/02/23 21:52:40 [2] started the term 59
+2021/02/23 21:52:40 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:40 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:40 Timer started
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 [2] started election after 467 at term 59
+2021/02/23 21:52:41 [2] convertToCandidate after term [59]
+2021/02/23 21:52:41 [2] become candidate at term[60]
+2021/02/23 21:52:41 [2] started the term 60
+2021/02/23 21:52:41 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:41 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:41 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 [2] started election after 483 at term 60
+2021/02/23 21:52:42 [2] convertToCandidate after term [60]
+2021/02/23 21:52:42 [2] become candidate at term[61]
+2021/02/23 21:52:42 [2] started the term 61
+2021/02/23 21:52:42 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:42 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:42 Timer started
+2021/02/23 21:52:43 Timer started
+2021/02/23 21:52:43 Timer started
+2021/02/23 21:52:43 Timer started
+2021/02/23 21:52:43 Timer started
+2021/02/23 21:52:43 [2] started election after 418 at term 61
+2021/02/23 21:52:43 [2] convertToCandidate after term [61]
+2021/02/23 21:52:43 [2] become candidate at term[62]
+2021/02/23 21:52:43 [2] started the term 62
+2021/02/23 21:52:43 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:43 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:43 Timer started
+2021/02/23 21:52:43 Timer started
+2021/02/23 21:52:43 Timer started
+2021/02/23 21:52:43 Timer started
+2021/02/23 21:52:43 Timer started
+2021/02/23 21:52:43 Timer started
+2021/02/23 21:52:43 Timer started
+2021/02/23 21:52:43 Timer started
+2021/02/23 21:52:43 Timer started
+2021/02/23 21:52:43 Timer started
+2021/02/23 21:52:43 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:43 Timer started
+2021/02/23 21:52:43 Timer started
+2021/02/23 21:52:43 Timer started
+2021/02/23 21:52:43 Timer started
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 [2] started election after 454 at term 62
+2021/02/23 21:52:44 [2] convertToCandidate after term [62]
+2021/02/23 21:52:44 [2] become candidate at term[63]
+2021/02/23 21:52:44 [2] started the term 63
+2021/02/23 21:52:44 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:44 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 Timer started
+2021/02/23 21:52:44 [2] started election after 399 at term 63
+2021/02/23 21:52:44 [2] convertToCandidate after term [63]
+2021/02/23 21:52:44 [2] become candidate at term[64]
+2021/02/23 21:52:44 [2] started the term 64
+2021/02/23 21:52:44 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:44 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 [2] started election after 406 at term 64
+2021/02/23 21:52:45 [2] convertToCandidate after term [64]
+2021/02/23 21:52:45 [2] become candidate at term[65]
+2021/02/23 21:52:45 [2] started the term 65
+2021/02/23 21:52:45 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:45 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:45 Timer started
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 [2] started election after 471 at term 65
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 [2] convertToCandidate after term [65]
+2021/02/23 21:52:46 [2] become candidate at term[66]
+2021/02/23 21:52:46 [2] started the term 66
+2021/02/23 21:52:46 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:46 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:46 Timer started
+2021/02/23 21:52:47 Timer started
+2021/02/23 21:52:47 Timer started
+2021/02/23 21:52:47 Timer started
+2021/02/23 21:52:47 Timer started
+2021/02/23 21:52:47 Timer started
+2021/02/23 21:52:47 Timer started
+2021/02/23 21:52:47 Timer started
+2021/02/23 21:52:47 Timer started
+2021/02/23 21:52:47 [2] started election after 473 at term 66
+2021/02/23 21:52:47 [2] convertToCandidate after term [66]
+2021/02/23 21:52:47 [2] become candidate at term[67]
+2021/02/23 21:52:47 [2] started the term 67
+2021/02/23 21:52:47 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:47 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:47 Timer started
+2021/02/23 21:52:47 Timer started
+2021/02/23 21:52:47 Timer started
+2021/02/23 21:52:47 Timer started
+2021/02/23 21:52:47 Timer started
+2021/02/23 21:52:47 Timer started
+2021/02/23 21:52:47 Timer started
+2021/02/23 21:52:47 Timer started
+2021/02/23 21:52:47 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:47 Timer started
+2021/02/23 21:52:47 Timer started
+2021/02/23 21:52:47 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 [2] started election after 315 at term 67
+2021/02/23 21:52:48 [2] convertToCandidate after term [67]
+2021/02/23 21:52:48 [2] become candidate at term[68]
+2021/02/23 21:52:48 [2] started the term 68
+2021/02/23 21:52:48 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:48 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 [2] started election after 315 at term 68
+2021/02/23 21:52:48 [2] convertToCandidate after term [68]
+2021/02/23 21:52:48 [2] become candidate at term[69]
+2021/02/23 21:52:48 [2] started the term 69
+2021/02/23 21:52:48 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:48 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:48 Timer started
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 [2] started election after 315 at term 69
+2021/02/23 21:52:49 [2] convertToCandidate after term [69]
+2021/02/23 21:52:49 [2] become candidate at term[70]
+2021/02/23 21:52:49 [2] started the term 70
+2021/02/23 21:52:49 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:49 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:49 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:49 Timer started
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 [2] started election after 457 at term 70
+2021/02/23 21:52:50 [2] convertToCandidate after term [70]
+2021/02/23 21:52:50 [2] become candidate at term[71]
+2021/02/23 21:52:50 [2] started the term 71
+2021/02/23 21:52:50 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:50 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:50 Timer started
+2021/02/23 21:52:51 Timer started
+2021/02/23 21:52:51 Timer started
+2021/02/23 21:52:51 [2] started election after 454 at term 71
+2021/02/23 21:52:51 [2] convertToCandidate after term [71]
+2021/02/23 21:52:51 [2] become candidate at term[72]
+2021/02/23 21:52:51 [2] started the term 72
+2021/02/23 21:52:51 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:51 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:51 Timer started
+2021/02/23 21:52:51 Timer started
+2021/02/23 21:52:51 Timer started
+2021/02/23 21:52:51 Timer started
+2021/02/23 21:52:51 Timer started
+2021/02/23 21:52:51 Timer started
+2021/02/23 21:52:51 Timer started
+2021/02/23 21:52:51 Timer started
+2021/02/23 21:52:51 Timer started
+2021/02/23 21:52:51 Timer started
+2021/02/23 21:52:51 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:51 Timer started
+2021/02/23 21:52:51 Timer started
+2021/02/23 21:52:51 Timer started
+2021/02/23 21:52:51 Timer started
+2021/02/23 21:52:51 [2] started election after 322 at term 72
+2021/02/23 21:52:51 [2] convertToCandidate after term [72]
+2021/02/23 21:52:51 [2] become candidate at term[73]
+2021/02/23 21:52:51 [2] started the term 73
+2021/02/23 21:52:51 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:51 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:51 Timer started
+2021/02/23 21:52:51 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 [2] started election after 391 at term 73
+2021/02/23 21:52:52 [2] convertToCandidate after term [73]
+2021/02/23 21:52:52 [2] become candidate at term[74]
+2021/02/23 21:52:52 [2] started the term 74
+2021/02/23 21:52:52 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:52 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:52 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:52 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 [2] started election after 408 at term 74
+2021/02/23 21:52:53 [2] convertToCandidate after term [74]
+2021/02/23 21:52:53 [2] become candidate at term[75]
+2021/02/23 21:52:53 [2] started the term 75
+2021/02/23 21:52:53 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:53 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:53 Timer started
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 [2] started election after 464 at term 75
+2021/02/23 21:52:54 [2] convertToCandidate after term [75]
+2021/02/23 21:52:54 [2] become candidate at term[76]
+2021/02/23 21:52:54 [2] started the term 76
+2021/02/23 21:52:54 [2] send RequestVoteRPC  to 0
+2021/02/23 21:52:54 [2] send RequestVoteRPC  to 1
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 [2] send RequestVoteRPC to 1 success, result - false
+2021/02/23 21:52:54 Timer started
+2021/02/23 21:52:54 Timer started
+signal: interrupt
+FAIL	6.824/src/raft	64.510s
